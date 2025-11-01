@@ -1,0 +1,30 @@
+{
+    "departmentName":"IT",
+    "departmentDescription":"Information Technology",
+    "departmentCode":"IT001"
+}
+------------------------
+
+
+{
+    "firstName":"tamoghno",
+    "lastName":"das",
+    "email":"tdas88@gmail.com",
+    "departmentCode":"IT001"
+     
+}
+------------------------------------------
+
+DEPARTMENT POST 
+http://localhost:8888/api/departments
+
+DEPARTMENT GET 
+http://localhost:8888/api/departments/IT001
+
+EMPLOYEE POST 
+http://localhost:7777/api/employees
+
+EMPLOYEE GET 
+http://localhost:7777/api/employees/{id given by postman and java}
+
+-------------------------------------------------------------------------

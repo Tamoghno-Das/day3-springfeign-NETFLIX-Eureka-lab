@@ -4,6 +4,7 @@ import com.emp.dto.DepartmentDto;
 import com.emp.dto.EmployeeDto;
 import com.emp.entity.Employee;
 import com.emp.repository.EmployeeRepository;
+import com.emp.service.ApiClient;
 import com.emp.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private EmployeeRepository employeeRepository;
     //private RestTemplate restTemplate;
-    private WebClient webClient;
+    //private WebClient webClient;
+    private ApiClient apiClient;
 
     @Override
     public EmployeeDto saveEmployee(EmployeeDto employeeDto) {
@@ -67,12 +69,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 //
 //        DepartmentDto departmentDto = responseEntity.getBody();
 
-        DepartmentDto departmentDto =
-                webClient.get()
-                        .uri("http://localhost:8888/api/departments/"+ employee.getDepartmentCode())
-                        .retrieve()
-                        .bodyToMono(DepartmentDto.class)
-                        .block();
+//        DepartmentDto departmentDto =
+//                webClient.get()
+//                        .uri("http://localhost:8888/api/departments/"+ employee.getDepartmentCode())
+//                        .retrieve()
+//                        .bodyToMono(DepartmentDto.class)
+//                        .block();
+
+        DepartmentDto departmentDto=apiClient.getDepartment(employee.getDepartmentCode());
 
         EmployeeDto employeeDto = new EmployeeDto(
                 employee.getId(),
